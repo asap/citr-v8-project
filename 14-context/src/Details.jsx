@@ -26,13 +26,15 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <Carousel images={pet.images} />
       <div>
-        <h1>{pet.name}</h1>
-        <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
-        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
-        <p>{pet.description}</p>
+        <h1 className="text-3xl">{pet.name}</h1>
+        <h2 className="text-lg">{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
+        <button className="buttons" onClick={() => setShowModal(true)}>
+          Adopt {pet.name}
+        </button>
+        <p className="text-lg">{pet.description}</p>
         {showModal ? (
           <Modal>
             <div>
@@ -46,7 +48,9 @@ const Details = () => {
                 >
                   Yes
                 </button>
-                <button onClick={() => setShowModal(false)}>No</button>
+                <button className="buttons" onClick={() => setShowModal(false)}>
+                  No
+                </button>
               </div>
             </div>
           </Modal>
